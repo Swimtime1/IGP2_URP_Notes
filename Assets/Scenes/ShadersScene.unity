@@ -2018,6 +2018,9 @@ VisualEffect:
       - m_Value: 1.5
         m_Name: Major Radius
         m_Overridden: 1
+      - m_Value: 7.9
+        m_Name: Intensity
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
