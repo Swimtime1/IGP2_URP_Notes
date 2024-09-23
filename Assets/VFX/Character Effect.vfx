@@ -24,9 +24,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614555}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614556}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614619}
       id: 0
       isStickyNote: 0
@@ -42,37 +39,10 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614558}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614569}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614580}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614606}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614613}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614678}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614680}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614682}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614697}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614708}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614711}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614713}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614735}
@@ -90,21 +60,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614585}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614589}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614662}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614591}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614665}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614593}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614670}
       id: 0
       isStickyNote: 0
@@ -112,21 +67,6 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614719}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614722}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614723}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614726}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614728}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614733}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614670}
@@ -3644,7 +3584,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614671}
   m_ExposedName: ParticleColor
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -6584,7 +6524,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614771}
   m_ExposedName: Cloak
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: SkinnedMeshRenderers
   m_Min:
     m_Type:
