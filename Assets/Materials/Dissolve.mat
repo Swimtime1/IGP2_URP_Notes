@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dissolve
-  m_Shader: {fileID: -6465566751694194690, guid: d42d6b433f0be5a49a1db67597a2e4d5, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 705a64c8a24a81f4488627acbea8583f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
