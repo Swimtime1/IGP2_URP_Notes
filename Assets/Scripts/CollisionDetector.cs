@@ -12,6 +12,9 @@ public class CollisionDetector : MonoBehaviour
     // Boolean Variables
     [SerializeField] private bool cubeChanged;
 
+    // Script Variables
+    [SerializeField] private proceduralPyramid procPyr;
+
     #endregion
 
     // Start is called before the first frame update
@@ -44,6 +47,7 @@ public class CollisionDetector : MonoBehaviour
         }
 
         // change to pyramid
+        procPyr.TransformToPyramid();
 
         // undissolves
         for(float i = 1.0f; i >= 0.0f; i -= 0.1f)
