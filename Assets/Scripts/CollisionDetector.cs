@@ -11,19 +11,21 @@ public class CollisionDetector : MonoBehaviour
 
     // Boolean Variables
     [SerializeField] private bool cubeChanged;
+    private bool canTeleport;
 
     // Transform Variables
-    [SerializeField] private Transform cam1, cam2;
+    [SerializeField] private Transform port1, port2;
 
     // Script Variables
     [SerializeField] private proceduralPyramid procPyr;
 
-    #endregion
+    #endregion Variables
 
     // Start is called before the first frame update
     void Start()
     {
         cubeChanged = false;
+        canTeleport = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,19 +37,21 @@ public class CollisionDetector : MonoBehaviour
             StartCoroutine(Dissolve());
         }
         
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("Collision Entered");
-        
         // Teleports Player to Portal 2
-        if(other.gameObject.CompareTag("Portal 1"))
-        { Debug.Log("Going to Portal 2");gameObject.transform.position = cam2.position; }
+        if(other.gameObject.CompareTag("Portal 1") && canTeleport)
+        {
+            canTeleport = false;
+            this.gameObject.transform.position = port2.position;
+            StartCoroutine(TeleportCooldown());
+        }
 
         // Teleports Player to Portal 1
-        else if(other.gameObject.CompareTag("Portal 2"))
-        { Debug.Log("Going to Portal 1");gameObject.transform.position = cam1.position; }
+        else if(other.gameObject.CompareTag("Portal 2") && canTeleport)
+        {
+            canTeleport = false;
+            this.gameObject.transform.position = port1.position;
+            StartCoroutine(TeleportCooldown());
+        }
     }
 
     #region Coroutines
@@ -75,5 +79,13 @@ public class CollisionDetector : MonoBehaviour
         dissolveMat.SetFloat("_Alpha_Clip_Threshold", 0.0f);
     }
 
-    #endregion
+    // Gives the player a cooldown on teleportation so that they aren't stuck in 
+    // an infinite portal jump
+    private IEnumerator TeleportCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        canTeleport = true;
+    }
+
+    #endregion Coroutines
 }
