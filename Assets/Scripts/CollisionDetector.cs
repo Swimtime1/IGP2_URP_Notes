@@ -12,6 +12,9 @@ public class CollisionDetector : MonoBehaviour
     // Boolean Variables
     [SerializeField] private bool cubeChanged;
 
+    // Transform Variables
+    [SerializeField] private Transform cam1, cam2;
+
     // Script Variables
     [SerializeField] private proceduralPyramid procPyr;
 
@@ -31,6 +34,20 @@ public class CollisionDetector : MonoBehaviour
             cubeChanged = true;
             StartCoroutine(Dissolve());
         }
+        
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Collision Entered");
+        
+        // Teleports Player to Portal 2
+        if(other.gameObject.CompareTag("Portal 1"))
+        { Debug.Log("Going to Portal 2");gameObject.transform.position = cam2.position; }
+
+        // Teleports Player to Portal 1
+        else if(other.gameObject.CompareTag("Portal 2"))
+        { Debug.Log("Going to Portal 1");gameObject.transform.position = cam1.position; }
     }
 
     #region Coroutines

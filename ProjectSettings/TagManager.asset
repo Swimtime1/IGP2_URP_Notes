@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Portal Camera
   - Dissolve
+  - Portal 1
+  - Portal 2
   layers:
   - Default
   - TransparentFX
