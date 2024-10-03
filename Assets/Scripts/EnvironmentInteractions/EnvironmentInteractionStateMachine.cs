@@ -41,7 +41,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
         _context = new EnvironmentInteractionContext(_leftIkConstraint, 
             _rightIkConstraint, _leftMRConstraint, _rightMRConstraint, 
-            _characterController);
+            _characterController, transform.root);
 
         InitializeStates();
         ConstructEnvironDetectCollider();

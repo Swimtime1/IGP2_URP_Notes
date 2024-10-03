@@ -14,4 +14,27 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     {
         Context = _context;
     }
+
+    // Determines the point on the mesh of another object that is closest
+    private Vector3 GetClosestPoint(Collider other, Vector3 posToCheck)
+    { return other.ClosestPoint(posToCheck); }
+
+    // 
+    protected void StartIkTargetPosTrack(Collider other)
+    {
+        Vector3 closestPointFromRoot = GetClosestPoint(other, Context.GetRootTransform.position);
+        Context.SetCurrSide(closestPointFromRoot);
+    }
+
+    // 
+    protected void UpdateIkTargetPosTrack(Collider other)
+    {
+        
+    }
+
+    // 
+    protected void ResetIkTargetPosTrack(Collider other)
+    {
+        
+    }
 }

@@ -5,23 +5,42 @@ public class EnvironmentInteractionContext
 {
     #region Variables
 
+    public enum EBodySide
+    {
+        RIGHT,
+        LEFT
+    }
+
     private TwoBoneIKConstraint _leftIkConstraint;
     private TwoBoneIKConstraint _rightIkConstraint;
     private MultiRotationConstraint _leftMRConstraint;
     private MultiRotationConstraint _rightMRConstraint;
     private CharacterController _characterController;
+    private Transform _rootTransform;
+
+    #region Current
+
+    public TwoBoneIKConstraint CurrIkConstraint { get; private set; }
+    public MultiRotationConstraint CurrMRConstraint { get; private set; }
+    public Transform CurrIkTargetTransform { get; private set; }
+    public Transform CurrShoulderTransform { get; private set; }
+    public EBodySide CurrBodySide { get; private set; }
+
+    #endregion Current
 
     #endregion Variables
 
     // Constructor
     public EnvironmentInteractionContext(TwoBoneIKConstraint lIK, TwoBoneIKConstraint rIK,
-        MultiRotationConstraint lMR, MultiRotationConstraint rMR, CharacterController cc)
+        MultiRotationConstraint lMR, MultiRotationConstraint rMR, CharacterController cc,
+        Transform rootTransform)
     {
         _leftIkConstraint = lIK;
         _rightIkConstraint = rIK;
         _leftMRConstraint = lMR;
         _rightMRConstraint = rMR;
         _characterController = cc;
+        _rootTransform = rootTransform;
     }
 
     #region Getters
@@ -31,6 +50,38 @@ public class EnvironmentInteractionContext
     public MultiRotationConstraint GetLeftMRConstraint => _leftMRConstraint;
     public MultiRotationConstraint GetRightMRConstraint => _rightMRConstraint;
     public CharacterController GetCharacterController => _characterController;
+    public Transform GetRootTransform => _rootTransform;
 
     #endregion Getters
+
+    #region Setters
+
+    public void SetCurrSide(Vector3 posToCheck)
+    {
+        Vector3 lShoulder = _leftIkConstraint.data.root.transform.position;
+        Vector3 rShoulder = _rightIkConstraint.data.root.transform.position;
+
+        bool lCloser = Vector3.Distance(posToCheck, lShoulder) < Vector3.Distance(posToCheck, rShoulder);
+
+        // sets the Current variables
+        if(lCloser)
+        {
+            Debug.Log("Left side is closer");
+            CurrBodySide = EBodySide.LEFT;
+            CurrIkConstraint = _leftIkConstraint;
+            CurrMRConstraint = _leftMRConstraint;
+        }
+        else
+        {
+            Debug.Log("Right side is closer");
+            CurrBodySide = EBodySide.RIGHT;
+            CurrIkConstraint = _rightIkConstraint;
+            CurrMRConstraint = _rightMRConstraint;
+        }
+
+        CurrShoulderTransform = CurrIkConstraint.data.root.transform;
+        CurrIkTargetTransform = CurrIkConstraint.data.target.transform;
+    }
+
+    #endregion Setters
 }

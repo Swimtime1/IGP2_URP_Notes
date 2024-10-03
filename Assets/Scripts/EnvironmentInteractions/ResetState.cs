@@ -23,6 +23,7 @@ public class ResetState : EnvironmentInteractionState
     }
     public override EnvironmentInteractionStateMachine.EEIS GetNextState()
     {
+        return EnvironmentInteractionStateMachine.EEIS.Search;
         return StateKey;
     }
     public override void OnTriggerEnter(Collider other){}
