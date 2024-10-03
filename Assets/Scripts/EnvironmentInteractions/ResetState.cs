@@ -14,12 +14,12 @@ public class ResetState : EnvironmentInteractionState
 
     public override void EnterState()
     {
-        Debug.Log("ENTERING RESET STATE");
+        
     }
     public override void ExitState(){}
     public override void UpdateState()
     {
-        Debug.Log("UPDATING RESET STATE");
+        
     }
     public override EnvironmentInteractionStateMachine.EEIS GetNextState()
     {

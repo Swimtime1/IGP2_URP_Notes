@@ -44,6 +44,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
             _characterController);
 
         InitializeStates();
+        ConstructEnvironDetectCollider();
     }
 
     // Makes sure that each of the private variables has been initialized
@@ -75,7 +76,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
         BoxCollider bColl = gameObject.AddComponent<BoxCollider>();
         bColl.size = new Vector3(wingspan, wingspan, wingspan);
-        float yCenter = bColl.center.y + (0.25f * wingspan);
+        float yCenter = bColl.center.y + (0.5f * wingspan);
         float zCenter = bColl.center.z + (0.5f * wingspan);
         bColl.center = new Vector3(bColl.center.x, yCenter, zCenter);
         bColl.isTrigger = true;
