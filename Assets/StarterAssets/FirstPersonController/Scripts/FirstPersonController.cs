@@ -20,6 +20,8 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+		[Tooltip("The Animator of the Player Model")]
+		public Animator animator;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -182,6 +184,9 @@ namespace StarterAssets
 			{
 				_speed = targetSpeed;
 			}
+
+			// update animation
+			animator.SetFloat("Speed", _speed);
 
 			// normalise input direction
 			Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
