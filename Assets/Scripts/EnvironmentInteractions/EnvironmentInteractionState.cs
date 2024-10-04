@@ -54,7 +54,11 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     //
     private void SetIkTargetPos()
     {
-        Context.ClosestPointFromShoulder = GetClosestPoint(Context.CurrOtherCollider,
-        Context.CurrShoulderTransform.position);
+        float xPos = Context.CurrShoulderTransform.position.x;
+        float yPos = Context.CurrShoulderTransform.position.y;
+        float zPos = Context.CurrShoulderTransform.position.z;
+        Vector3 shoulderPos = new Vector3(xPos, yPos, zPos);
+        
+        Context.ClosestPointFromShoulder = GetClosestPoint(Context.CurrOtherCollider, shoulderPos);
     }
 }

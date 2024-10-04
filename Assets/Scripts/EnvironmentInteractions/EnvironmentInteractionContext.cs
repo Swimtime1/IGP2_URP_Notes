@@ -42,6 +42,8 @@ public class EnvironmentInteractionContext
         _rightMRConstraint = rMR;
         _characterController = cc;
         _rootTransform = rootTransform;
+
+        CharacterShoulderHeight = lIK.data.root.transform.position.y;
     }
 
     #region Getters
@@ -56,6 +58,7 @@ public class EnvironmentInteractionContext
     #endregion Getters
 
     public Vector3 ClosestPointFromShoulder { get; set; } = Vector3.positiveInfinity;
+    public float CharacterShoulderHeight { get; private set; }
 
     #region Setters
 
