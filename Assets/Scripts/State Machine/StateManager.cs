@@ -6,7 +6,6 @@ public abstract class StateManager<EState> : MonoBehaviour where EState : Enum
 {
     protected Dictionary<EState, BaseState<EState>> States = new Dictionary<EState, BaseState<EState>>();
     public BaseState<EState> CurrentState { get; protected set; }
-
     protected bool IsTransitioningState = false;
 
     void Start()

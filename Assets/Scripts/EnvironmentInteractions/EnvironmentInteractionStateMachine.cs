@@ -76,11 +76,20 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
         BoxCollider bColl = gameObject.AddComponent<BoxCollider>();
         bColl.size = new Vector3(wingspan, wingspan, wingspan);
-        float yCenter = bColl.center.y + (0.5f * wingspan);
-        float zCenter = bColl.center.z + (0.5f * wingspan);
-        bColl.center = new Vector3(bColl.center.x, yCenter, zCenter);
+        float yCenter = _characterController.center.y + (0.25f * wingspan);
+        float zCenter = _characterController.center.z + (0.5f * wingspan);
+        bColl.center = new Vector3(_characterController.center.x, yCenter, zCenter);
         bColl.isTrigger = true;
     }
 
     #endregion Before First Frame
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        if(_context != null && _context.ClosestPointFromShoulder != null)
+        {
+            Gizmos.DrawSphere(_context.ClosestPointFromShoulder, 0.03f);
+        }
+    }
 }

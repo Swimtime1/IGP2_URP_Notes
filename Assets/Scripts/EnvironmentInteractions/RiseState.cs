@@ -19,9 +19,18 @@ public class RiseState : EnvironmentInteractionState
     {
         return StateKey;
     }
-    public override void OnTriggerEnter(Collider other){}
-    public override void OnTriggerStay(Collider other){}
-    public override void OnTriggerExit(Collider other){}
+    public override void OnTriggerEnter(Collider other)
+    {
+        StartIkTargetPosTrack(other);
+    }
+    public override void OnTriggerStay(Collider other)
+    {
+        UpdateIkTargetPos(other);
+    }
+    public override void OnTriggerExit(Collider other)
+    {
+        ResetIkTargetPosTrack(other);
+    }
 
     #endregion Overrides
 }

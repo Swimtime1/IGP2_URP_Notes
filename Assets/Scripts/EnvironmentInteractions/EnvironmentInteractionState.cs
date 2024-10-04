@@ -9,10 +9,10 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     #endregion Variables
 
     // Constructor
-    public EnvironmentInteractionState(EnvironmentInteractionContext _context,
+    public EnvironmentInteractionState(EnvironmentInteractionContext context,
         EnvironmentInteractionStateMachine.EEIS stateKey) : base(stateKey)
     {
-        Context = _context;
+        Context = context;
     }
 
     // Determines the point on the mesh of another object that is closest
@@ -22,19 +22,39 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     // 
     protected void StartIkTargetPosTrack(Collider other)
     {
-        Vector3 closestPointFromRoot = GetClosestPoint(other, Context.GetRootTransform.position);
-        Context.SetCurrSide(closestPointFromRoot);
+        if(other.gameObject.layer == LayerMask.NameToLayer("Interactable") &&
+            Context.CurrOtherCollider == null)
+        {
+            Context.CurrOtherCollider = other;
+            Vector3 closestPointFromRoot = GetClosestPoint(other, Context.GetRootTransform.position);
+            Context.SetCurrSide(closestPointFromRoot);
+
+            SetIkTargetPos();
+        }
     }
 
     // 
-    protected void UpdateIkTargetPosTrack(Collider other)
+    protected void UpdateIkTargetPos(Collider other)
     {
-        
+        if(other == Context.CurrOtherCollider)
+        {
+            SetIkTargetPos();
+        }
     }
 
     // 
     protected void ResetIkTargetPosTrack(Collider other)
     {
-        
+        if(other == Context.CurrOtherCollider)
+        {
+            Context.CurrOtherCollider = null;
+        }
+    }
+
+    //
+    private void SetIkTargetPos()
+    {
+        Context.ClosestPointFromShoulder = GetClosestPoint(Context.CurrOtherCollider,
+        Context.CurrShoulderTransform.position);
     }
 }

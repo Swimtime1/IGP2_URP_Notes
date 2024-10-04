@@ -20,6 +20,7 @@ public class EnvironmentInteractionContext
 
     #region Current
 
+    public Collider CurrOtherCollider { get; set;}
     public TwoBoneIKConstraint CurrIkConstraint { get; private set; }
     public MultiRotationConstraint CurrMRConstraint { get; private set; }
     public Transform CurrIkTargetTransform { get; private set; }
@@ -53,6 +54,8 @@ public class EnvironmentInteractionContext
     public Transform GetRootTransform => _rootTransform;
 
     #endregion Getters
+
+    public Vector3 ClosestPointFromShoulder { get; set; } = Vector3.positiveInfinity;
 
     #region Setters
 
