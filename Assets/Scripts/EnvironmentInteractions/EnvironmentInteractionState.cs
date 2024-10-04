@@ -5,6 +5,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     #region Variables
 
     protected EnvironmentInteractionContext Context;
+    protected Vector3 LIK_DefaultPos, RIK_DefaultPos;
 
     #endregion Variables
 
@@ -13,6 +14,8 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         EnvironmentInteractionStateMachine.EEIS stateKey) : base(stateKey)
     {
         Context = context;
+        LIK_DefaultPos = Context.GetLeftIKConstraint.data.target.transform.localPosition;
+        RIK_DefaultPos = Context.GetRightIKConstraint.data.target.transform.localPosition;
     }
 
     // Determines the point on the mesh of another object that is closest
@@ -48,6 +51,9 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         if(other == Context.CurrOtherCollider)
         {
             Context.CurrOtherCollider = null;
+            Context.ClosestPointFromShoulder = Vector3.positiveInfinity;
+            Context.GetLeftIKConstraint.data.target.transform.localPosition = LIK_DefaultPos;
+            Context.GetRightIKConstraint.data.target.transform.localPosition = RIK_DefaultPos;
         }
     }
 
@@ -60,5 +66,13 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         Vector3 shoulderPos = new Vector3(xPos, yPos, zPos);
         
         Context.ClosestPointFromShoulder = GetClosestPoint(Context.CurrOtherCollider, shoulderPos);
+
+        Vector3 rayDirection = Context.CurrShoulderTransform.position - Context.ClosestPointFromShoulder;
+        Vector3 normalizedRayDirection = rayDirection.normalized;
+        float offsetDist = .05f;
+        Vector3 offset = normalizedRayDirection * offsetDist;
+
+        Vector3 offsetPos = Context.ClosestPointFromShoulder + offset;
+        Context.CurrIkTargetTransform.position = offsetPos;
     }
 }
