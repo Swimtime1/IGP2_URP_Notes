@@ -26,10 +26,11 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
     [SerializeField] private MultiRotationConstraint _leftMRConstraint;
     [SerializeField] private MultiRotationConstraint _rightMRConstraint;
 
+    #endregion Constraints
+
     [Space(20)]
     [SerializeField] private CharacterController _characterController;
-
-    #endregion Constraints
+    [SerializeField] private Rig _rig;
 
     #endregion Variables
 
@@ -41,7 +42,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
         _context = new EnvironmentInteractionContext(_leftIkConstraint, 
             _rightIkConstraint, _leftMRConstraint, _rightMRConstraint, 
-            _characterController, transform.root);
+            _characterController, transform.root, _rig);
 
         InitializeStates();
         ConstructEnvironDetectCollider();
