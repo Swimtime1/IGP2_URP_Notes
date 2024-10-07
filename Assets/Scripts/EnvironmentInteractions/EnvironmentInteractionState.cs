@@ -34,8 +34,6 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
 
             SetIkTargetPos();
         }
-
-        Context.SetRigWeight(1.0f);
     }
 
     // 
@@ -58,7 +56,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
             Context.GetRightIKConstraint.data.target.transform.localPosition = RIK_DefaultPos;
         }
 
-        Context.SetRigWeight(0.0f);
+        Context.ResetRigWeight();
     }
 
     //

@@ -30,7 +30,6 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
     [Space(20)]
     [SerializeField] private CharacterController _characterController;
-    [SerializeField] private Rig _rig;
 
     #endregion Variables
 
@@ -42,7 +41,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
         _context = new EnvironmentInteractionContext(_leftIkConstraint, 
             _rightIkConstraint, _leftMRConstraint, _rightMRConstraint, 
-            _characterController, transform.root, _rig);
+            _characterController, transform.root);
 
         InitializeStates();
         ConstructEnvironDetectCollider();

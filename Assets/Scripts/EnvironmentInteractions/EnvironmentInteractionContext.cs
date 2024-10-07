@@ -17,7 +17,6 @@ public class EnvironmentInteractionContext
     private MultiRotationConstraint _rightMRConstraint;
     private CharacterController _characterController;
     private Transform _rootTransform;
-    private Rig _rig;
 
     #region Current
 
@@ -35,7 +34,7 @@ public class EnvironmentInteractionContext
     // Constructor
     public EnvironmentInteractionContext(TwoBoneIKConstraint lIK, TwoBoneIKConstraint rIK,
         MultiRotationConstraint lMR, MultiRotationConstraint rMR, CharacterController cc,
-        Transform rootTransform, Rig rig)
+        Transform rootTransform)
     {
         _leftIkConstraint = lIK;
         _rightIkConstraint = rIK;
@@ -43,7 +42,6 @@ public class EnvironmentInteractionContext
         _rightMRConstraint = rMR;
         _characterController = cc;
         _rootTransform = rootTransform;
-        _rig = rig;
 
         CharacterShoulderHeight = lIK.data.root.transform.position.y;
     }
@@ -87,13 +85,22 @@ public class EnvironmentInteractionContext
             CurrMRConstraint = _rightMRConstraint;
         }
 
+        // Set Rig Weights
+        CurrIkConstraint.weight = 1.0f;
+        CurrMRConstraint.weight = 1.0f;
+
         CurrShoulderTransform = CurrIkConstraint.data.root.transform;
         CurrIkTargetTransform = CurrIkConstraint.data.target.transform;
     }
 
-    // Sets the weight of the overall Rig
-    public void SetRigWeight(float w)
-    { _rig.weight = w; }
+    // Resets the weight of the overall Rig
+    public void ResetRigWeight()
+    {
+        _leftIkConstraint.weight = 0.0f;
+        _leftMRConstraint.weight = 0.0f;
+        _rightIkConstraint.weight = 0.0f;
+        _rightMRConstraint.weight = 0.0f;
+    }
 
     #endregion Setters
 }
