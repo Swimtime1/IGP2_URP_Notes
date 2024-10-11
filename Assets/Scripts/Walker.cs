@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class Walker : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class Walker : MonoBehaviour
     // Float Variables
     private float leftLegLast = 0;
     private float rightLegLast = 0;
+    [SerializeField] private float runSpeed, walkSpeed, runTime, walkTime;
+    [SerializeField] private float horVal, vertVal;
+
+    // Animator Variables
+    public Animator animator;
+
+    // Rig Variables
+    public Rig rig;
 
     #endregion Variables
     
@@ -31,6 +40,8 @@ public class Walker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeSpeed();
+        
         float fEnd = horizontalCurve[1].time;
         float uEnd = VerticalCurve[1].time;
         
@@ -63,5 +74,40 @@ public class Walker : MonoBehaviour
         // Updates the last known direction of each leg
         leftLegLast = leftLegForwardMovement;
         rightLegLast = rightLegForwardMovement;
+    }
+
+    // Determine how quickly the player is moving, and updates the animation
+    private void ChangeSpeed()
+    {
+        // assumes running
+        if(animator.GetFloat("Speed") >= runSpeed)
+        {
+            rig.weight = 1.0f;
+            UpdateCurveEnd(runTime);
+        }
+
+        // assumes walking
+        else if(animator.GetFloat("Speed") >= walkSpeed)
+        {
+            rig.weight = 1.0f;
+            UpdateCurveEnd(walkTime);
+        }
+
+        // assumes idle
+        else { rig.weight = 0.0f; }
+    }
+
+    // Updates the leg movement speed to match the player speed
+    private void UpdateCurveEnd(float time)
+    {
+        // update horizontalCurve
+        int index = horizontalCurve.AddKey(time, horVal);
+        if(index == 2) { horizontalCurve.RemoveKey(1); }
+        else if(index == 1) { horizontalCurve.RemoveKey(2); }
+        
+        // update VerticalCurve
+        index = VerticalCurve.AddKey(time, vertVal);
+        if(index == 2) { VerticalCurve.RemoveKey(1); }
+        else if(index == 1) { VerticalCurve.RemoveKey(2); }
     }
 }
