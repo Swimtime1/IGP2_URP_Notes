@@ -76,14 +76,12 @@ public class EnvironmentInteractionContext
         // sets the Current variables
         if(lCloser)
         {
-            Debug.Log("Left side is closer");
             CurrBodySide = EBodySide.LEFT;
             CurrIkConstraint = _leftIkConstraint;
             CurrMRConstraint = _leftMRConstraint;
         }
         else
         {
-            Debug.Log("Right side is closer");
             CurrBodySide = EBodySide.RIGHT;
             CurrIkConstraint = _rightIkConstraint;
             CurrMRConstraint = _rightMRConstraint;

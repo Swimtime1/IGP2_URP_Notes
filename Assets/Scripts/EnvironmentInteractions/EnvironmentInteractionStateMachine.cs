@@ -66,7 +66,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
         States.Add(EEIS.Touch, new TouchState(_context, EEIS.Touch));
         States.Add(EEIS.Reset, new ResetState(_context, EEIS.Reset));
 
-        CurrentState = States[EEIS.Reset];
+        CurrentState = States[EEIS.Search];
     }
 
     // Creates a Collider to detect Environmental Constructs that trigger different states

@@ -23,7 +23,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     { return other.ClosestPoint(posToCheck); }
 
     // Begins tracking where the hand should reach for
-    protected void StartIkTargetPosTrack(Collider other)
+    protected bool StartIkTargetPosTrack(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Interactable") &&
             Context.CurrOtherCollider == null)
@@ -33,7 +33,10 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
             Context.SetCurrSide(closestPointFromRoot);
 
             SetIkTargetPos();
+            return true;
         }
+
+        return false;
     }
 
     // Makes sure that the position of the hand is updated
@@ -48,17 +51,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     // Stops IK Tracking, and returns to normal animation
     protected bool ResetIkTargetPosTrack(Collider other)
     {
-        if(other == Context.CurrOtherCollider)
-        {
-            Context.CurrOtherCollider = null;
-            Context.ClosestPointFromShoulder = Vector3.positiveInfinity;
-            Context.GetLeftIKConstraint.data.target.transform.localPosition = LIK_DefaultPos;
-            Context.GetRightIKConstraint.data.target.transform.localPosition = RIK_DefaultPos;
-            Context.ResetRigWeight();
-            return true;
-        }
-
-        return false;
+        return (other == Context.CurrOtherCollider);
     }
 
     // Determines where on the surface being touched the IK Target should be
@@ -77,7 +70,6 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         Vector3 offset = normalizedRayDirection * offsetDist;
 
         Vector3 offsetPos = Context.ClosestPointFromShoulder + offset;
-        /* Vector3 midway = (offsetPos + shoulderPos) / 2.0f; */
         Context.CurrIkTargetTransform.position = offsetPos;
     }
 }

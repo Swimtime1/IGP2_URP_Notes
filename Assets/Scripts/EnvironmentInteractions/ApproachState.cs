@@ -10,9 +10,6 @@ public class ApproachState : EnvironmentInteractionState
     // Float Variables
     private float weight, t;
 
-    // Vector3 Variables
-    private Vector3 shoulderPos, ikPos;
-
     #endregion
     
     // Constructor
@@ -33,20 +30,14 @@ public class ApproachState : EnvironmentInteractionState
     public override void ExitState(){}
     public override void UpdateState()
     {
-        // maxes the rig weight to 50%
-        weight = Mathf.Lerp(0.0f, 0.5f, t);
-        t += (Time.deltaTime);
-
-        shoulderPos = Context.CurrShoulderTransform.position;
-        ikPos = Context.CurrIkTargetTransform.position;
+        weight = Mathf.Lerp(0.0f, 1.0f, t);
+        t += (2 * Time.deltaTime);
     }
     public override EnvironmentInteractionStateMachine.EEIS GetNextState()
     {
         // resets if the trigger is exited
         if(surfaceExited) { return EnvironmentInteractionStateMachine.EEIS.Reset; }
-        else if((Vector3.Distance(shoulderPos, ikPos) < (Context.Wingspan / 2))
-                && (t >= 0.5f))
-        { return EnvironmentInteractionStateMachine.EEIS.Rise; }
+        else if(t >= 1.0f) { return EnvironmentInteractionStateMachine.EEIS.Touch; }
         return StateKey;
     }
     public override void OnTriggerEnter(Collider other){}

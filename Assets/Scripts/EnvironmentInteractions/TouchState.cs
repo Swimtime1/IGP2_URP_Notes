@@ -22,7 +22,6 @@ public class TouchState : EnvironmentInteractionState
     public override void EnterState()
     {
         surfaceExited = false;
-        Context.UpdateWeight(1.0f);
     }
     public override void ExitState(){}
     public override void UpdateState(){}

@@ -29,8 +29,7 @@ public class SearchState : EnvironmentInteractionState
     }
     public override void OnTriggerEnter(Collider other)
     {
-        StartIkTargetPosTrack(other);
-        surfaceFound = true;
+        surfaceFound = StartIkTargetPosTrack(other);
     }
     public override void OnTriggerStay(Collider other)
     {
