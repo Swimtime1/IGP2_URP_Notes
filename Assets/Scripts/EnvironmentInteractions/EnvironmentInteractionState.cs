@@ -77,6 +77,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         Vector3 offset = normalizedRayDirection * offsetDist;
 
         Vector3 offsetPos = Context.ClosestPointFromShoulder + offset;
+        /* Vector3 midway = (offsetPos + shoulderPos) / 2.0f; */
         Context.CurrIkTargetTransform.position = offsetPos;
     }
 }
