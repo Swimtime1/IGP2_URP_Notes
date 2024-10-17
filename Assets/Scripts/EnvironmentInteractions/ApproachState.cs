@@ -27,7 +27,7 @@ public class ApproachState : EnvironmentInteractionState
         surfaceExited = false;
         t = 0.0f;
     }
-    public override void ExitState(){}
+    public override void ExitState() { weight = 0.0f; }
     public override void UpdateState()
     {
         weight = Mathf.Lerp(0.0f, 1.0f, t);
