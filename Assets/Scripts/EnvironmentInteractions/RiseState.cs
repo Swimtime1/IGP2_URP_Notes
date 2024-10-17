@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class RiseState : EnvironmentInteractionState
 {
+    #region Variables
+
+    // Boolean Variables
+    private bool surfaceExited;
+
+    // Float Variables
+    private float weight, t;
+
+    #endregion
+    
     // Constructor
     public RiseState(EnvironmentInteractionContext context, 
         EnvironmentInteractionStateMachine.EEIS estate)
@@ -12,24 +22,35 @@ public class RiseState : EnvironmentInteractionState
 
     #region Overrides
 
-    public override void EnterState(){}
+    public override void EnterState()
+    {
+        surfaceExited = false;
+        t = 0.0f;
+    }
     public override void ExitState(){}
-    public override void UpdateState(){}
+    public override void UpdateState()
+    {
+        weight = Mathf.Lerp(0.5f, 1.0f, t);
+        t += (Time.deltaTime);
+    }
     public override EnvironmentInteractionStateMachine.EEIS GetNextState()
     {
+        // resets if the trigger is exited
+        if(surfaceExited) { return EnvironmentInteractionStateMachine.EEIS.Reset; }
+        else if(t >= 1.0f) { return EnvironmentInteractionStateMachine.EEIS.Touch; }
         return StateKey;
     }
-    public override void OnTriggerEnter(Collider other)
-    {
-        StartIkTargetPosTrack(other);
-    }
+    public override void OnTriggerEnter(Collider other){}
     public override void OnTriggerStay(Collider other)
     {
         UpdateIkTargetPos(other);
+
+        // updates the weight only if the contextual trigger hasn't been exited
+        if(!surfaceExited) { Context.UpdateWeight(weight); }
     }
     public override void OnTriggerExit(Collider other)
     {
-        ResetIkTargetPosTrack(other);
+        surfaceExited = ResetIkTargetPosTrack(other);
     }
 
     #endregion Overrides

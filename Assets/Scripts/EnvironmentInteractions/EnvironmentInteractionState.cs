@@ -46,7 +46,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     }
 
     // Stops IK Tracking, and returns to normal animation
-    protected void ResetIkTargetPosTrack(Collider other)
+    protected bool ResetIkTargetPosTrack(Collider other)
     {
         if(other == Context.CurrOtherCollider)
         {
@@ -54,9 +54,11 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
             Context.ClosestPointFromShoulder = Vector3.positiveInfinity;
             Context.GetLeftIKConstraint.data.target.transform.localPosition = LIK_DefaultPos;
             Context.GetRightIKConstraint.data.target.transform.localPosition = RIK_DefaultPos;
+            Context.ResetRigWeight();
+            return true;
         }
 
-        Context.ResetRigWeight();
+        return false;
     }
 
     // Determines where on the surface being touched the IK Target should be
