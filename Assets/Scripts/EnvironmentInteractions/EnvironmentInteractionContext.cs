@@ -5,6 +5,7 @@ public class EnvironmentInteractionContext
 {
     #region Variables
 
+    // An enum with the body sides
     public enum EBodySide
     {
         RIGHT,
@@ -62,6 +63,7 @@ public class EnvironmentInteractionContext
 
     #region Setters
 
+    // Sets contextual variables to use side of body closer to touched surface
     public void SetCurrSide(Vector3 posToCheck)
     {
         Vector3 lShoulder = _leftIkConstraint.data.root.transform.position;

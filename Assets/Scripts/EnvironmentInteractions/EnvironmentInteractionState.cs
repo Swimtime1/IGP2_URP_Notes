@@ -22,7 +22,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
     private Vector3 GetClosestPoint(Collider other, Vector3 posToCheck)
     { return other.ClosestPoint(posToCheck); }
 
-    // 
+    // Begins tracking where the hand should reach for
     protected void StartIkTargetPosTrack(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Interactable") &&
@@ -36,7 +36,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         }
     }
 
-    // 
+    // Makes sure that the position of the hand is updated
     protected void UpdateIkTargetPos(Collider other)
     {
         if(other == Context.CurrOtherCollider)
@@ -45,7 +45,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         }
     }
 
-    // 
+    // Stops IK Tracking, and returns to normal animation
     protected void ResetIkTargetPosTrack(Collider other)
     {
         if(other == Context.CurrOtherCollider)
@@ -59,7 +59,7 @@ public abstract class EnvironmentInteractionState : BaseState<EnvironmentInterac
         Context.ResetRigWeight();
     }
 
-    //
+    // Determines where on the surface being touched the IK Target should be
     private void SetIkTargetPos()
     {
         float xPos = Context.CurrShoulderTransform.position.x;

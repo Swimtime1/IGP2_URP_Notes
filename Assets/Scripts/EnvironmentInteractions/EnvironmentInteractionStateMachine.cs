@@ -6,7 +6,7 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 {
     #region Variables
     
-    // 
+    // An enum containing each of the Environment Interaction States
     public enum EEIS
     {
         Search,
@@ -84,6 +84,8 @@ public class EnvironmentInteractionStateMachine : StateManager<EnvironmentIntera
 
     #endregion Before First Frame
 
+    // Draws a gizmo in the Scene View at the point on the surface being touched
+    // closest to the player's shoulder
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
