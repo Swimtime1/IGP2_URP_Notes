@@ -35,10 +35,7 @@ public class SearchState : EnvironmentInteractionState
     {
         UpdateIkTargetPos(other);
     }
-    public override void OnTriggerExit(Collider other)
-    {
-        ResetIkTargetPosTrack(other);
-    }
+    public override void OnTriggerExit(Collider other) {}
 
     #endregion Overrides
 }

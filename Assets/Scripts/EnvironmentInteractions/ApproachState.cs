@@ -50,7 +50,7 @@ public class ApproachState : EnvironmentInteractionState
     }
     public override void OnTriggerExit(Collider other)
     {
-        surfaceExited = ResetIkTargetPosTrack(other);
+        if(ResetIkTargetPosTrack(other)) { surfaceExited = true; }
     }
 
     #endregion Overrides
