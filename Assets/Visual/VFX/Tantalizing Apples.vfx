@@ -135,13 +135,13 @@ MonoBehaviour:
   - name: Apple Position
     collapsed: 1
   - name: Boughs
-    collapsed: 0
+    collapsed: 1
   uiBounds:
     serializedVersion: 2
     x: -1269
     y: -2145
     width: 2637
-    height: 4222
+    height: 4227
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614688}
   m_ExposedName: Apple Count
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -2830,7 +2830,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614977}
   m_ExposedName: Bounding Box
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 24
   m_Category: 
   m_Min:
     m_Type:
@@ -3182,7 +3182,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615124}
   m_ExposedName: Player Radius
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 32
   m_Category: 
   m_Min:
     m_Type:
@@ -3278,7 +3278,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615126}
   m_ExposedName: Player Position
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 33
   m_Category: 
   m_Min:
     m_Type:
@@ -3536,7 +3536,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615210}
   m_ExposedName: Min Size
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: Apple Size
   m_Min:
     m_Type:
@@ -3616,7 +3616,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615212}
   m_ExposedName: Max Size
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: Apple Size
   m_Min:
     m_Type:
@@ -3696,7 +3696,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615232}
   m_ExposedName: Apple Diameter
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 12
   m_Category: Apple Size
   m_Min:
     m_Type:
@@ -3914,7 +3914,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615456}
   m_ExposedName: Min Y-Position
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 6
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -3994,7 +3994,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615458}
   m_ExposedName: Max Y-Position
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 10
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -4074,7 +4074,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615941}
   m_ExposedName: Min X-Position
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 17
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -4154,7 +4154,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615943}
   m_ExposedName: Max X-Position
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 19
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -4706,7 +4706,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615964}
   m_ExposedName: Min Z-Position
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 26
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -4786,7 +4786,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615966}
   m_ExposedName: Max Z-Position
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 31
   m_Category: Apple Position
   m_Min:
     m_Type:
@@ -6686,8 +6686,7 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661616185}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661616183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6788,8 +6787,7 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661616182}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661616186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8674,7 +8672,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616333}
   m_ExposedName: Bough (1)(1)
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -8856,7 +8854,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616338}
   m_ExposedName: Bough (1)(2)
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9038,7 +9036,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616343}
   m_ExposedName: Bough (1)(3)
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 5
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9220,7 +9218,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616348}
   m_ExposedName: Bough (1)(4)
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 7
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9402,7 +9400,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616353}
   m_ExposedName: Bough (1)(5)
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 9
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9584,7 +9582,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616383}
   m_ExposedName: Bough (2)(1)
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 11
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9766,7 +9764,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616388}
   m_ExposedName: Bough (2)(2)
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 13
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -9948,7 +9946,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616393}
   m_ExposedName: Bough (2)(3)
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 14
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -10130,7 +10128,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616398}
   m_ExposedName: Bough (2)(4)
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 15
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -10312,7 +10310,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616403}
   m_ExposedName: Bough (2)(5)
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 16
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -10494,7 +10492,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616408}
   m_ExposedName: Bough (3)(1)
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 18
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -10676,7 +10674,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616413}
   m_ExposedName: Bough (3)(2)
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 20
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -10858,7 +10856,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616418}
   m_ExposedName: Bough (3)(3)
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 21
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11040,7 +11038,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616423}
   m_ExposedName: Bough (3)(4)
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 22
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11222,7 +11220,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616428}
   m_ExposedName: Bough (3)(5)
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 23
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11404,7 +11402,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616433}
   m_ExposedName: Bough (4)(1)
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 25
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11586,7 +11584,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616438}
   m_ExposedName: Bough (4)(2)
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 27
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11768,7 +11766,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616443}
   m_ExposedName: Bough (4)(3)
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 28
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -11950,7 +11948,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616448}
   m_ExposedName: Bough (4)(4)
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 29
   m_Category: Boughs
   m_Min:
     m_Type:
@@ -12132,7 +12130,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616453}
   m_ExposedName: Bough (4)(5)
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 30
   m_Category: Boughs
   m_Min:
     m_Type:
