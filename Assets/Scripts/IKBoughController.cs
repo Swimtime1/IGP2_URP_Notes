@@ -13,7 +13,7 @@ public class IKBoughController : MonoBehaviour
 
     [Header("Dimensions")]
     [SerializeField] private GameObject player;
-    [SerializeField] private float playerRadius = 5f;
+    [SerializeField] private float playerRadius = 2.5f;
     [SerializeField] private float S;
 
     #endregion Variables
