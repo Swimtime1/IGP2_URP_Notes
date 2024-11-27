@@ -121,7 +121,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4252088070205619216}
-  m_Layer: 0
+  - component: {fileID: 8804092306758779898}
+  m_Layer: 3
   m_Name: Bone.006_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +147,19 @@ Transform:
   m_Father: {fileID: 6767928819098484684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8804092306758779898
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415356763920565468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.005
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1552190530794680828
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +581,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2279110368183263138}
-  m_Layer: 0
+  - component: {fileID: 6767321550763768481}
+  m_Layer: 3
   m_Name: Bone.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,6 +607,19 @@ Transform:
   m_Father: {fileID: 3596629185301604245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6767321550763768481
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766861068503112850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0025
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5088701814133686536
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +633,7 @@ GameObject:
   - component: {fileID: 6677003975202613983}
   - component: {fileID: 3890024236263713499}
   - component: {fileID: 6758817244726845253}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SpringTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
