@@ -35,6 +35,10 @@ namespace StarterAssets
 		[Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
 		public float FallTimeout = 0.15f;
 
+		[Space(10)]
+		[Tooltip("The y value of the Player Capsule while crouched")]
+		public float CrouchHeight = -0.512f;
+
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
 		public bool Grounded = true;
@@ -117,6 +121,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Crouch();
 		}
 
 		private void LateUpdate()
@@ -162,7 +167,7 @@ namespace StarterAssets
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
-			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+			if ((_input.move == Vector2.zero) || (_input.crouch && Grounded)) targetSpeed = 0.0f;
 
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
@@ -251,6 +256,18 @@ namespace StarterAssets
 			}
 		}
 
+		private void Crouch()
+		{
+			if(_input.crouch && (transform.localPosition.y > CrouchHeight))
+			{
+				transform.localPosition = new Vector3(transform.localPosition.x, (transform.localPosition.y - 0.01f), transform.localPosition.z);
+			}
+			else if(!(_input.crouch) && (transform.localPosition.y < 0.0f))
+			{
+				transform.localPosition = new Vector3(transform.localPosition.x, (transform.localPosition.y + 0.01f), transform.localPosition.z);
+			}
+		}
+		
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;

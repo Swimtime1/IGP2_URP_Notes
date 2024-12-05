@@ -2736,6 +2736,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 632327637451967498, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
   m_PrefabInstance: {fileID: 1785658563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1034814113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 901864515773626955, guid: 59f1cee081aa5ba44ac702ae3313898f, type: 3}
+  m_PrefabInstance: {fileID: 776141574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034814118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034814113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94e9897ca589b0459ea8a7a71d8e75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5393215579111688472}
 --- !u!4 &1048682113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3231929313456173482, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
@@ -5866,19 +5884,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1224131610236834031, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7536744
+      value: 0.75367427
       objectReference: {fileID: 0}
     - target: {fileID: 1224131610236834031, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5002674
+      value: 0.5002673
       objectReference: {fileID: 0}
     - target: {fileID: 1224131610236834031, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.33898488
+      value: -0.33898485
       objectReference: {fileID: 0}
     - target: {fileID: 1224131610236834031, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2584509
+      value: 0.25845087
       objectReference: {fileID: 0}
     - target: {fileID: 1309627038290892789, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_Layer
@@ -6087,7 +6105,7 @@ PrefabInstance:
     - target: {fileID: 5645783768503272285, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0596e6ba7a35c70449acad428012e9da, type: 2}
+      objectReference: {fileID: 9100000, guid: 557e74331cfe9b3428a2143decb20410, type: 2}
     - target: {fileID: 5645783768503272285, guid: 21bf62ad96eef844983c250aa8bc32ad, type: 3}
       propertyPath: m_CullingMode
       value: 1
